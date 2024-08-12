@@ -3,19 +3,20 @@
 
 int main() {
     char flag[] = "01111110"; 
-    int size;
-
-    printf("Enter number of bits in data: ");
-    scanf("%d", &size); 
+    int size = 100;
 
     
-    char data[2 * size]; 
-
-    printf("Enter the data bits one by one:\n");
-    for (int i = 0; i < size; i++) {
-        scanf(" %c", &data[i]); 
+    char data[size]; 
+    int i = 0;
+    int f = 1;
+    printf("Enter the data bits:\n");
+   while(f == 1){
+    scanf("%c", &data[i]);
+    if (data[i] == '\n'){
+        f = 0;
     }
-
+    i++;
+   }
     // Printing the original data
     printf("Original data: %s\n", data);
     int newsize = size;
@@ -52,7 +53,6 @@ int main() {
         if (count==6){
             for (int j =i; j<newsize; j++){
                 data[j+1] =  data[j+2];
-                printf("data: %s\n", data);
             }
             count = 0;
             i++;
